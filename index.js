@@ -14,43 +14,19 @@ const fs = require('fs');
 const path = require('path');
 //inquirer
 const inquirer = require('inquirer');
-//const pageHTML = generatePage(Intern, Manager, Engineer);
-
-
-
-
-//const employee = new Employee("", "blkah", "bl@kah")
-//const completeTxt = generateTemplate(allEmployees);
-
 
 
 const allEmployees = [];
 
 
-// if no
-// take the allEmployees array, and loop through it, and add each employee card to the template
 const getEngineer = (employee) => {
-    inquirer.prompt([{
-        type: 'input',
-        name: 'github',
-        message: 'Enter engineer\s github here: '
-    // },
-    // {
-    //     type: 'input',
-    //     name: 'id',
-    //     message: 'What is the ID'
-
-    // },
-    // {
-    //     type: 'input',
-    //     name: 'email',
-    //     message: 'What is the email adress?'
-    // },
-    // {
-    //     type: 'input',
-    //     name: 'value',
-    //     message: 'What is the intern\s school: '
-    }])
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'github',
+            message: 'Enter engineer\s github here: '
+        }
+    ])
         .then(data => {
             allEmployees.push(new Engineer(employee.name, employee.id, employee.email, data.github));
             continuePrompt();
@@ -59,22 +35,6 @@ const getEngineer = (employee) => {
 
 const getIntern = (employee) => {
     inquirer.prompt([
-        // {
-        //     type: 'input',
-        //     name: 'name',
-        //     message: 'What is the employees name?'
-        // },
-        // {
-        //     type: 'input',
-        //     name: 'id',
-        //     message: 'What is the ID'
-
-        // },
-        // {
-        //     type: 'input',
-        //     name: 'email',
-        //     message: 'What is the email adress?'
-        // },
         {
             type: 'input',
             name: 'value',
@@ -88,11 +48,6 @@ const getIntern = (employee) => {
 
 const getManager = (employee) => {
     inquirer.prompt([
-        // {
-        //     type: 'input',
-        //     name: 'name',
-        //     message: 'What is the employees name?'
-        // },
         {
             type: 'input',
             name: "value",
@@ -105,9 +60,6 @@ const getManager = (employee) => {
         })
 
 }
-
-
-
 
 // questions array for employee
 const promptUser = () => {
@@ -137,7 +89,6 @@ const promptUser = () => {
 
 }
 
-
 function start() {
     promptUser().then(employee => {
         switch (employee.role) {
@@ -156,12 +107,8 @@ function start() {
 
                 break;
 
-            default: init();
+            default: console.log("error occured!");
         }
-        // if (err) {
-        //     console.log(err)
-        // }
-
     });
 }
 
@@ -174,7 +121,7 @@ const continuePrompt = function () {
     }])
         .then(answer => {
             if (answer.repeat === "yes") start();
-            else if(answer.repeat === "not right now"){
+            else if (answer.repeat === "not right now") {
                 console.log("end");
                 init();
                 start();
@@ -187,9 +134,6 @@ const continuePrompt = function () {
 start();
 
 function init() {
-    // let employee = true;
-    //getNewEmployee()
-    //getManager();
     console.log(allEmployees);
     fs.writeFile('index.html', generatePage(allEmployees), err => {
         console.log(err);
@@ -197,51 +141,6 @@ function init() {
     }
     )
 }
-// function getNewEmployee() {
-
-//     //const employee = inquirer.prompt(questions);
-
-//     promptUser()
-//     .then(employee => {
-//         switch (employee.role) {
-//             case "Engineer":
-//                 const github = inquirer.prompt({
-//                     type: "input",
-//                     name: "github",
-//                     message: "Enter engineer's github here: "
-//                 });
-//                 allEmployees.push(new Engineer(employee.name, employee.id, employee.email, github.github));
-//                 break;
-//             case "Intern":
-//                 const school = inquirer.prompt({
-//                     type: "input",
-//                     name: "value",
-//                     message: "What is the intern's school: "
-//                 });
-//                 allEmployees.push(new Intern(employee.name, employee.id, employee.email, school.value));
-//                 break;
-//             case "Manager":
-//                 const officeNumber = inquirer.prompt({
-//                     type: "input",
-//                     name: "value",
-//                     messsage: "Please enter the mangager's office number: "
-
-//                 });
-//                 allEmployees.push(new Manager(employee.name, employee.id, employee.email, officeNumber.value));
-//                 break;
-//         }
-//         if (err) {
-//             console.log(err)
-//         }
-
-//     })
-
-// }
-
-
-
-
-// init();
 
 
 
