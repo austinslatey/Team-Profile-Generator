@@ -1,5 +1,27 @@
 {
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "* [User-Story](#user-story)\r   * [Description](#description)\r   * [Installation](#installation)\r   * [Usage](#usage)\r   * [Contributions](#contributions)\r   * [Tests](#tests)\r   * [License](#license)\r   * [Questions](#questions)",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
   "dependencies": {
-    "inquirer": "^8.2.0"
-  }
+    "inquirer": "^8.2.0",
+    "jest": "^27.5.1"
+  },
+  "scripts": {
+    "test": "jest",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/austinslatey/Team-Profile-Generator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/austinslatey/Team-Profile-Generator/issues"
+  },
+  "homepage": "https://github.com/austinslatey/Team-Profile-Generator#readme"
 }
