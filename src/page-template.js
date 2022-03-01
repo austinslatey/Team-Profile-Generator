@@ -1,67 +1,62 @@
 
-const generateEngineer = function(engineer) {
-    return `<container>
+const generateEngineer = function (engineer) {
+    return `<div class="container">
     <div class="row">
-        <div class="employees col-12">
-           <p> ${engineer.name} </p>
-           <p> id: ${engineer.id} </p>
-           <p> email: ${engineer.email} </p>
-           <p> github: ${engineer.github} </p>
-        </div>
-    </div>
-    </container>`
+        <div class="col-sm-4">
+            <h3>Engineer ${engineer.name} </h3>
+            <p> id: ${engineer.id} </p>
+            <p> email: ${engineer.email} </p>
+            <p> github: ${engineer.github} </p>
+        </div>`
+
 
 
 
 }
-const generateManager = function(manager) {
-    return `<container>
+const generateManager = function (manager) {
+    return `<div class="container">
     <div class="row">
-        <div class="employees col-12">
-           <p> ${manager.name} </p>
-           <p> id: ${manager.id} </p>
-           <p> email: ${manager.email} </p>
-           <p> office number: ${manager.officeNumber} </p>
-        </div>
-    </div>
-    </container>`
+        <div class="col-sm-4">
+            <h3>Manager ${manager.name} </h3>
+            <p> id: ${manager.id} </p>
+            <p> email: ${manager.email} </p>
+            <p> office number: ${manager.officeNumber} </p>
+        </div>`
 }
 
-const generateIntern = function(intern) {
-    return `<container>
+const generateIntern = function (intern) {
+    return `<div class="container">
     <div class="row">
-        <div class="employees col-12">
-           <p> name: ${intern.name} </p>
-           <p> id: ${intern.id} </p>
-           <p> email: ${intern.email} </p>
-           <p> school: ${intern.school} </p>
-        </div>
-    </div>
-    </container>`
+        <div class="col-sm-4">
+            <h3>Intern ${intern.name} </h3>
+            <p> id: ${intern.id} </p>
+            <p> email: ${intern.email} </p>
+            <p> school: ${intern.school} </p>
+        </div>`
 }
 
 function generatePage(allEmployees) {
 
     const employeeCards = [];
-    for (var i = 0; i < allEmployees.length; i++){
+    for (var i = 0; i < allEmployees.length; i++) {
         const employee = allEmployees[i]
         switch (employee.getRole()) {
             case 'engineer':
                 const engineerCard = generateEngineer(employee);
-                employeeCards.push(engineerCard); 
-                break; 
-            case 'manager': 
+                employeeCards.push(engineerCard);
+                break;
+            case 'manager':
                 const managerCard = generateManager(employee);
                 employeeCards.push(managerCard);
                 break;
-            case 'intern': 
+            case 'intern':
                 const internCard = generateIntern(employee);
                 employeeCards.push(internCard);
                 break;
             default: console.log("something is wrong");
         }
-            
-        
+
+
     }
 
     return ` <!DOCTYPE html>
@@ -76,15 +71,13 @@ function generatePage(allEmployees) {
     
     </head>
     <body>
-        <div class="container-fluid">
-        <div class="row">
-        <div class="col-12">
-            <h2>Employees</h2>
-            ${employeeCards.join("")}
-        </div>
-        
-        </div>
-        </div>
+    <div class="jumbotron text-center">
+      <h1>Employee Roster</h1>      
+    </div>    
+  <h3>Some of the employees</h3><br>
+  <div class="card">
+      <p>${employeeCards.join("")}</p>
+    </div>
     </body>
     </html>
     `
