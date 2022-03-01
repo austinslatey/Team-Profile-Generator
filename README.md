@@ -8,7 +8,6 @@
   * [Installation](#installation)
   * [Usage](#usage)
   * [Contributions](#contributions)
-  * [Tests](#tests)
   * [License](#license)
   * [Questions](#questions)
 
@@ -23,6 +22,7 @@
 
   ## Description
   A command line application that generates a team's info upon completion
+  [visit-demo] (https://drive.google.com/file/d/1p0COboO0PWAgCtZFKrDRC0BDSC108ItI/view)
 
   ## Installation
   Clone repository, npm i, complet the promts in the command line
@@ -33,8 +33,6 @@
   ## Contributions
   austinslatey
 
-  ## Tests
-  n/a
 
   ## License 
   none
