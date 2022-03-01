@@ -170,11 +170,11 @@ const continuePrompt = function () {
         type: "list",
         name: "repeat",
         message: "Would you like to add another employee?",
-        choices: ["yes", "no", "exit"]
+        choices: ["yes", "not right now", "exit"]
     }])
         .then(answer => {
             if (answer.repeat === "yes") start();
-            else if(answer.repeat === "no"){
+            else if(answer.repeat === "not right now"){
                 console.log("end");
                 init();
                 start();
